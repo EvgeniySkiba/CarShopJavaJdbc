@@ -39,6 +39,10 @@ public class JTableFromArray {
             {"Смирнов9","Павел","Яковлевич"}
         };
         
+         javax.swing.SwingUtilities.invokeLater(new Runnable() {
+               public void run() {
+                   
+               
         JFrame frame = new JFrame("JTableExample");
         frame.getContentPane().setLayout(new FlowLayout());
         
@@ -53,6 +57,10 @@ public class JTableFromArray {
         jTableFio.setPreferredScrollableViewportSize(new Dimension(400,200));
         
         frame.getContentPane().add(scrol);
-        frame.setVisible(true);        
+        frame.pack();
+        frame.setLocationRelativeTo(null);
+        frame.setVisible(true); 
+               }
+         });
     }
 }
