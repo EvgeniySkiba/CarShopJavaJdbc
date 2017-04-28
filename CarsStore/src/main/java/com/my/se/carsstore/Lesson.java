@@ -22,7 +22,6 @@ public class Lesson {
 
     /// https://www.codeproject.com/Tips/815186/Java-JDBC-SQLite-Read-Data-from-User-selected-db-T
     ///Java & JDBC & SQLite: Read Data from User-selected db Table and Show in JTable
-    
     public static void main(String[] args) {
 
         //4. CTRL+/ Toggle Comment
@@ -62,13 +61,21 @@ public class Lesson {
                 String tableName = rs.getString("TABLE_NAME");
                 System.out.println(tableName);
             }
-            
-             // get all tables <--
 
+            // get all tables <--
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (SQLException e) {
-            e.printStackTrace();
+            //какой класс и метод делают вызов.
+            StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+            String message = "";
+            if (stackTraceElements.length >= 3) {
+                StackTraceElement element = stackTraceElements[1];
+                String className = element.getClassName();
+                String methodName = element.getMethodName();
+                message = className + ": " + methodName;
+            }
+            System.out.println("message : " +message);
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
