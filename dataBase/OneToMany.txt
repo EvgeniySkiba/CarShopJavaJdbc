@@ -1,0 +1,17 @@
+
+Car (1)
+ *	id 
+    car_type
+	
+CarType  (2)
+* id
+  name
+  
+  в левом дереве выбрать родительскую (Car)
+  вкладка design 
+  подвкладка 
+  ForeignKey
+  
+  parentTable 2
+  parent id (primary key )
+  child (car_type)
