@@ -20,6 +20,7 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JButton;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
@@ -39,6 +40,18 @@ public class Application {
         try {
             model = new TableModel(connection, "carBrandView");
 
+            
+            JButton button = new JButton("Refresh");
+            button.setSize(100,50);
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    System.out.println(".actionPerformed()"); //To change body of generated methods, choose Tools | Templates.
+                }
+            });
+            
+            
+            
             JTable jtable = new JTable(model);
 
             jtable.setDefaultRenderer(Object.class, new TableRenderer());
@@ -90,7 +103,7 @@ public class Application {
             
             exitItem.addActionListener(new ActionListener() {           
             public void actionPerformed(ActionEvent e) {               
-                //TODO : implement close connection
+                //TODO : implement: close connection
                 System.exit(0);             
             }           
         });
@@ -98,6 +111,7 @@ public class Application {
             menuBar.add(fileMenu);             
             frame.setJMenuBar(menuBar);
             
+           // frame.add(button);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
             frame.getContentPane().add(scroller);
             frame.pack();
