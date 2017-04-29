@@ -26,7 +26,7 @@ public class Application {
         Connection connection = SqlLiteConnection.getConnection();
         TableModel model;
         try {
-            model = new TableModel(connection, "CarColor");
+            model = new TableModel(connection, "carBrandView");
 
             JTable jtable = new JTable(model);
 
